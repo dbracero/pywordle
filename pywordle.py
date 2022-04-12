@@ -2,9 +2,11 @@ import random
 
 LETTERS_COUNT: int = 5
 
-words: list = ["angel"]
+#TODO: Load words from file"
+words: list = ["angel", "pilas", "remar", "indio", "fugaz"]
 result: list = [None] * LETTERS_COUNT
 occurrences: dict = {}
+guessed: bool = False
 
 MAX_ATTEMPTS: int = 6
 
@@ -35,16 +37,16 @@ def check(attempt: str, word_to_guess: str) -> None:
 
 if __name__ == '__main__':
 	word_to_guess: str = random.choice(words)
-	print("Word to guess: ", word_to_guess)
 	load_word(word_to_guess)
 
 	attempt_count: int = 0
-	while (attempt_count < MAX_ATTEMPTS):
+	while (attempt_count < MAX_ATTEMPTS and not guessed):
 		print("Write your guess...")
 		attempt: str = input()
 		check(attempt, word_to_guess)
 		attempt_count += 1
 		if attempt == word_to_guess:
+			guessed = True
 			print("You guessed it!")
 		else:
 			print(result)
