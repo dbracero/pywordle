@@ -5,7 +5,6 @@ from colorama import Fore, Back, Style
 
 LETTERS_COUNT: int = 5
 
-#TODO: Load words from file"
 words: list = []
 miss: str = '[_]'
 result: list = [miss] * LETTERS_COUNT
@@ -72,6 +71,4 @@ if __name__ == '__main__':
 		if attempt == word_to_guess:
 			guessed = True
 			print('You guessed it!')
-		#else:
-			#print(result)
 	print('The word was: ' + Fore.GREEN + word_to_guess)
